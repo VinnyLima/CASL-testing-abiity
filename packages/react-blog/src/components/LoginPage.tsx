@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   TextField,
   Button,
@@ -6,15 +6,21 @@ import {
   makeStyles,
   createStyles,
   Paper,
-} from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import { useAppStore } from '../hooks/useAppStore';
-import { useFormField, validation, required, minLength, email } from '../hooks/useFormField';
-import { useAsyncTask } from '../hooks/useAsyncTask';
-import { BadCredentialsError } from '../services/AppStore';
-import TaskErrorNotification from './TaskErrorNotification';
-import { when } from '../services/error';
-import { useAppTitle } from '../hooks/useAppTitle';
+} from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { useAppStore } from "../hooks/useAppStore";
+import {
+  useFormField,
+  validation,
+  required,
+  minLength,
+  email,
+} from "../hooks/useFormField";
+import { useAsyncTask } from "../hooks/useAsyncTask";
+import { BadCredentialsError } from "../services/AppStore";
+import TaskErrorNotification from "./TaskErrorNotification";
+import { when } from "../services/error";
+import { useAppTitle } from "../hooks/useAppTitle";
 
 function useLoginForm() {
   const email = useFormField();
@@ -23,19 +29,21 @@ function useLoginForm() {
   return { email, password };
 }
 
-const useStyles = makeStyles(theme => createStyles({
-  formField: {
-    marginBottom: theme.spacing(2),
-  },
-  form: {
-    marginTop: theme.spacing(5),
-    padding: theme.spacing(2),
-  }
-}));
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    formField: {
+      marginBottom: theme.spacing(2),
+    },
+    form: {
+      marginTop: theme.spacing(5),
+      padding: theme.spacing(2),
+    },
+  })
+);
 
 const validate = validation<ReturnType<typeof useLoginForm>>({
   email: [required, email],
-  password: [minLength(6)]
+  password: [minLength(6)],
 });
 
 export default () => {
@@ -43,21 +51,36 @@ export default () => {
   const form = useLoginForm();
   const styles = useStyles();
   const history = useHistory();
-  const loginTask = useAsyncTask((task) => {
-    return store.login(form.email.value!, form.password.value!)
-      .then(() => {
-        history.push('/');
-      })
-      .catch(error => when(error, [
-        [BadCredentialsError, () => task.setError('Invalid login or password')]
-      ]))
-  }, () => validate(form));
-  useAppTitle('Login');
+
+  const loginTask = useAsyncTask(
+    (task) => {
+      return store
+        .login(form.email.value!, form.password.value!)
+        .then(() => {
+          history.push("/");
+        })
+        .catch((error) =>
+          when(error, [
+            [
+              BadCredentialsError,
+              () => task.setError("Invalid login or password"),
+            ],
+          ])
+        );
+    },
+    () => validate(form)
+  );
+  useAppTitle("Login");
 
   return (
     <Container>
       <Paper elevation={3}>
-        <form className={styles.form} noValidate autoComplete="off" onSubmit={loginTask.exec}>
+        <form
+          className={styles.form}
+          noValidate
+          autoComplete="off"
+          onSubmit={loginTask.exec}
+        >
           <TaskErrorNotification task={loginTask} />
           <div className={styles.formField}>
             <TextField

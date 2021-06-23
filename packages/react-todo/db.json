@@ -1,0 +1,72 @@
+{"data": [
+  {"usuario": {
+    "id": "c5a34771-6bed-4002-aa6e-5135d44a47ef",
+    "nome": "Paulo Vinicius",
+    "sobreNome": "Ferreira Lima",
+    "email": "pvinfol@gmail.com",
+    "codArea": "27",
+    "telefone": "995006516",
+    "codInterno": "PVFL123",
+    "avatarUsuario": "http://localhost:3333/files",
+    "excluido": false,
+    "dataCadastro": "2021-06-08T20:00:53.761Z",
+    "dataAlteracao": "2021-06-08T20:00:53.761Z",
+    "created_at": "2021-06-08T23:00:53.348Z",
+    "update_at": "2021-06-15T20:06:41.751Z"
+  },
+  "autorizacoes": [],
+  "empresas": [
+    {
+      "id": "2f63ac13-a29e-48dc-a5d3-be412638bd18",
+      "nomeEmpresa": "AgroES",
+      "idEmpresa": "123456",
+      "url": "www.agroES.com.br",
+      "logoEmpresa": "22957ccdfebbe07ae5cd-logo_sma.png",
+      "excluido": false,
+      "dataCadastro": "2021-06-15T18:13:51.126Z",
+      "dataAlteracao": "2021-06-15T18:13:51.126Z",
+      "created_at": "2021-06-15T21:13:50.609Z",
+      "update_at": "2021-06-15T21:13:50.609Z",
+      "Permissoes": {        
+        "id":"2f63ac13-a29e-48dc-a5d3-be412638bd25",
+        "dsPerfil":"Master",
+        "permissoesPerfil": [
+          {
+            "cdPerfil":"2f63ac13-a29e-48dc-a5d3-be412638bd25",
+            "cdPrograma":"4b0db3de-1e5c-4f69-9cdb-6b199ca0243f",
+            "flInclusao":1,
+            "flAlteracao":1,
+            "flExclusao":1
+          },
+          {
+            "cdPerfil":"2f63ac13-a29e-48dc-a5d3-be412638bd25",
+            "cdPrograma":"4b0db3de-1e5c-4f69-9cdb-6b199ca05000",
+            "flInclusao":1,
+            "flAlteracao":1,
+            "flExclusao":1
+          },
+          {
+            "cdPerfil":"2f63ac13-a29e-48dc-a5d3-be412638bd25",
+            "cdPrograma":"4b0db3de-1e5c-4f69-9cdb-6b199ca06000",
+            "flInclusao":1,
+            "flAlteracao":1,
+            "flExclusao":1
+          }
+        ]
+      }
+    }
+  ] 
+}
+],
+"perfis":[
+  {
+    "id":"2f63ac13-a29e-48dc-a5d3-be412638bd25",    
+    "dsPerfil":"Master"
+  },
+  {
+    "id":"2f63ac13-a29e-48dc-a5d3-be412638bd26",    
+    "dsPerfil":"Suporte"
+  }
+]
+  
+}
